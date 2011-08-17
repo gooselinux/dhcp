@@ -1,0 +1,45 @@
+diff -up dhcp-4.1.1/includes/dhcpd.h.paths dhcp-4.1.1/includes/dhcpd.h
+--- dhcp-4.1.1/includes/dhcpd.h.paths	2010-01-20 17:21:09.000000000 +0100
++++ dhcp-4.1.1/includes/dhcpd.h	2010-01-20 17:21:09.000000000 +0100
+@@ -1342,15 +1342,15 @@ typedef unsigned char option_mask [16];
+ #else /* !DEBUG */
+ 
+ #ifndef _PATH_DHCPD_CONF
+-#define _PATH_DHCPD_CONF	"/etc/dhcpd.conf"
++#define _PATH_DHCPD_CONF	"/etc/dhcp/dhcpd.conf"
+ #endif /* DEBUG */
+ 
+ #ifndef _PATH_DHCPD_DB
+-#define _PATH_DHCPD_DB		LOCALSTATEDIR"/db/dhcpd.leases"
++#define _PATH_DHCPD_DB		LOCALSTATEDIR"/dhcpd/dhcpd.leases"
+ #endif
+ 
+ #ifndef _PATH_DHCPD6_DB
+-#define _PATH_DHCPD6_DB		LOCALSTATEDIR"/db/dhcpd6.leases"
++#define _PATH_DHCPD6_DB		LOCALSTATEDIR"/dhcpd/dhcpd6.leases"
+ #endif
+ 
+ #ifndef _PATH_DHCPD_PID
+@@ -1364,7 +1364,7 @@ typedef unsigned char option_mask [16];
+ #endif /* DEBUG */
+ 
+ #ifndef _PATH_DHCLIENT_CONF
+-#define _PATH_DHCLIENT_CONF	"/etc/dhclient.conf"
++#define _PATH_DHCLIENT_CONF	"/etc/dhcp/dhclient.conf"
+ #endif
+ 
+ #ifndef _PATH_DHCLIENT_SCRIPT
+@@ -1380,11 +1380,11 @@ typedef unsigned char option_mask [16];
+ #endif
+ 
+ #ifndef _PATH_DHCLIENT_DB
+-#define _PATH_DHCLIENT_DB	LOCALSTATEDIR"/db/dhclient.leases"
++#define _PATH_DHCLIENT_DB	LOCALSTATEDIR"/dhclient/dhclient.leases"
+ #endif
+ 
+ #ifndef _PATH_DHCLIENT6_DB
+-#define _PATH_DHCLIENT6_DB	LOCALSTATEDIR"/db/dhclient6.leases"
++#define _PATH_DHCLIENT6_DB	LOCALSTATEDIR"/dhclient/dhclient6.leases"
+ #endif
+ 
+ #ifndef _PATH_RESOLV_CONF
