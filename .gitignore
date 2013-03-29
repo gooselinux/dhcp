@@ -1,9 +1,2 @@
-dhcpd6.init
-56dhclient
-10-dhclient
-README.dhclient.d
-dhclient-script
-dhcrelay.init
-dhcpd.init
 ldap-for-dhcp-4.1.1-2.tar.gz
 dhcp-4.1.1-P1.tar.gz
