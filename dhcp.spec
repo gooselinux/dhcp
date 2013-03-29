@@ -15,7 +15,7 @@
 Summary:  Dynamic host configuration protocol software
 Name:     dhcp
 Version:  4.1.1
-Release:  12.%{patchver}%{?dist}.1
+Release:  12.%{patchver}%{?dist}.2
 # NEVER CHANGE THE EPOCH on this package.  The previous maintainer (prior to
 # dcantrell maintaining the package) made incorrect use of the epoch and
 # that's why it is at 12 now.  It should have never been used, but it was.
@@ -61,6 +61,7 @@ Patch23:  %{name}-4.1.1-retransmission.patch
 Patch24:  %{name}-4.1.1-release6-elapsed.patch
 Patch25:  %{name}-4.1.1-P1-PIE-RELRO.patch
 Patch26:  %{name}-4.1.1-P1-CVE-2010-3611.patch
+Patch27:  %{name}-4.1.1-P1-CVE-2011-0413.patch
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: autoconf
@@ -232,6 +233,9 @@ libdhcpctl and libomapi static libraries are also included in this package.
 
 # CVE-2010-3611 - NULL pointer dereference crash via crafted DHCPv6 packet (#651913)
 %patch26 -p1 -b .CVE-2010-3611
+
+# CVE-2011-0413 - Unexpected abort caused by a DHCPv6 decline message (#672994)
+%patch27 -p1 -b .CVE-2011-0413
 
 # Copy in documentation and example scripts for LDAP patch to dhcpd
 %{__install} -p -m 0755 ldap-for-dhcp-%{ldappatchver}/dhcpd-conf-to-ldap contrib/
@@ -515,6 +519,9 @@ fi
 %attr(0644,root,root) %{_mandir}/man3/omapi.3.gz
 
 %changelog
+* Thu Jan 27 2011 Jiri Popelka <jpopelka@redhat.com> - 12:4.1.1-12.P1.2
+- CVE-2011-0413: Unexpected abort caused by a DHCPv6 decline message (#672994)
+
 * Wed Nov 10 2010 Jiri Popelka <jpopelka@redhat.com> - 12:4.1.1-12.P1.1
 - CVE-2010-3611: NULL pointer dereference crash via crafted DHCPv6 packet (#651913)
 
